@@ -4,7 +4,7 @@
 *.dylib
 *.dSYM
 *.o
-*.a
+
 /target/
 Cargo.lock
 /msrv-test/target/

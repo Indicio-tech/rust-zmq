@@ -1,0 +1,15 @@
+[target.x86_64-pc-windows-gnu.sodium]
+rustc-link-lib = ["sodium"]
+rustc-link-search = ["/libsodium/mingw/libsodium-win64/lib"]
+rustc-env = { DEP_SODIUM_INCLUDE = "libsodium/mingw/libsodium-win64/include", DEP_SODIUM_LIB = "libsodium/mingw/libsodium-win64/lib" }
+rustc-flags = "-L /libsodium/mingw/libsodium-win64/lib"
+DEP_SODIUM_LIB = "/libsodium/mingw/libsodium-win64/lib"
+DEP_SODIUM_INCLUDE = "/libsodium/mingw/libsodium-win64/include"
+
+[target.x86_64-pc-windows-msvc.sodium]
+rustc-link-lib = ["sodium"]
+rustc-link-search = ["/libsodium/msvc/x64/Release/v143/static"]
+rustc-env = { DEP_SODIUM_INCLUDE = "libsodium/msvc/include", DEP_SODIUM_LIB = "libsodium/msvc/x64/Release/v143/static" }
+rustc-flags = "-L /libsodium/msvc/x64/Release/v143/static"
+DEP_SODIUM_LIB = "/libsodium/msvc/x64/Release/v143/static"
+DEP_SODIUM_INCLUDE = "libsodium/msvc/include"
