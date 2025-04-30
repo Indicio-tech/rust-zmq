@@ -13,10 +13,14 @@ pub fn configure() {
     // we link against `libsodium` to enable `ZMQ_CURVE`.
     let maybe_libsodium = if cfg!(feature = "libsodium") {
         if cfg!(target_os = "windows"){
-            match vcpkg::probe_package("libsodium"){
+            match vcpkg::find_package("libsodium"){
                 Ok(lib) =>{
                     let lib_dir = &lib.link_paths;
                     let include_dir = &lib.include_paths;
+
+                    println!("cargo:warning=lib_dir {:?}", lib_dir);
+                    println!("cargo:warning=include_dir {:?}", include_dir);
+
                     Some(zeromq_src::LibLocation::new(lib_dir[0].clone(), include_dir[0].clone()))
                 }
                 Err(err) => {
