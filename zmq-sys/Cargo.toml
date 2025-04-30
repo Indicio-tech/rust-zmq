@@ -28,6 +28,16 @@ libsodium-sys-stable = { version = "=1.21.4", optional = true }
 [build-dependencies]
 system-deps = "6"
 zeromq-src = { version = "0.3.5+4.3.5"}
+vcpkg = "0.2.15"
+
 
 [package.metadata.system-deps]
 libzmq = "4.1"
+
+
+[package.metadata.vcpkg]
+git = "https://github.com/microsoft/vcpkg"
+rev = "4c1db68"
+
+[package.metadata.vcpkg.target]
+x86_64-pc-windows-msvc = { triplet = "x64-windows-static", dependencies = ["libsodium"] }
